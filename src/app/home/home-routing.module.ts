@@ -37,6 +37,10 @@ const routes: Routes = [
         path: 'drivers',
         loadChildren: () => import("../drivers/drivers.module").then(m => m.DriversModule)
       },
+      {
+        path: 'dashbords',
+        loadChildren: () => import("../dashbords/dashbords.module").then(m => m.DashbordsModule)
+      },
     ]
   }
 ];
