@@ -27,6 +27,9 @@ export class FoodsComponent implements OnInit {
     },
   ];
   isAddingfoods = false;
+  isUpdatingFood = false;
+  // selectedFood: any;
+  selectedFoodIndex: number;
 
   constructor() { }
 
@@ -61,5 +64,24 @@ export class FoodsComponent implements OnInit {
 
   onRemoveClick(i: number) {
     this.foods.splice(i, 1);
+  }
+
+  onEditClick(food: any, i: number) {
+    this.isUpdatingFood = true;
+    this.fn = food.foodName;
+    this.city = food.city;
+    // this.selectedFood = food;
+    this.selectedFoodIndex = i;
+  }
+
+  onUpdateClick() {
+    this.isUpdatingFood = false;
+    // this.selectedFood.foodName = this.fn;
+    // this.selectedFood.city = this.city;
+    const newfoods = {
+      foodName: this.fn,
+      city: this.city,
+    };
+    this.foods[this.selectedFoodIndex] = newfoods;
   }
 }

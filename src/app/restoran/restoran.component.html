@@ -1,1 +1,49 @@
-<p>restoran works!</p>
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <h1>Restoran</h1>
+        <div>
+            <button *ngIf="isAddingRestoran" (click)="onSaveClick()" type="button" class="btn btn-success">save</button>
+            <button *ngIf="isAddingRestoran" (click)="onCreateCancel()" type="button" class="btn btn-success">cancel</button>
+            <button *ngIf="!isAddingRestoran" (click)="onCreateNewClick()" type="button" class="btn btn-success">createNew</button>
+            <button *ngIf="isUpdateingRestoran" (click)="onUpdateClick()" type="button" class="btn btn-success">update</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <table class="table table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">nameRestoran</th>
+                    <th scope="col">city</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let restoran of restorans;let x=index">
+                    <th scope="row">{{x}}</th>
+                    <td>{{restoran.nameRestoran}}</td>
+                    <td>{{restoran.city}}</td>
+                    <td>
+                        <button (click)="onEditClick(restoran ,x)" type="button" class="btn btn-primary">Edit</button>
+                    </td>
+                    <td>
+                        <button (click)="onRemoveClick(x)" type="button" class="btn btn-danger">Delete</button>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+        <div class="col-4" *ngIf="isAddingRestoran || isUpdateingRestoran">
+            <div class="form-group">
+                <label>nameRestoran</label>
+                <input [(ngModel)]="name" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>city</label>
+                <input [(ngModel)]="sname" type="text" class="form-control">
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

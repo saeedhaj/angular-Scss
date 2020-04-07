@@ -5,26 +5,34 @@
             <button *ngIf="isAddingfoods" class="btn btn-primary" (click)="onSaveClick()" type="button">save</button>
             <button *ngIf="!isAddingfoods" class="btn btn-primary" (click)="onCreateClick()" type="button">createNew</button>
             <button *ngIf="isAddingfoods" class="btn btn-primary" (click)="onCreateCancelClick()" type="button">cancel</button>
+            <button *ngIf="isUpdatingFood" class="btn btn-primary" (click)="onUpdateClick()" type="button">Update</button>
         </div>
     </div>
     <div class="row">
-        <div class="col-5">
+        <div class="col-6">
             <table class="table">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">foodName</th>
                     <th scope="col">city</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
                 </tr>
                 <tr *ngFor="let food of foods;let i=index;">
                     <th scope="row">{{i}}</th>
                     <td>{{food.foodName}}</td>
                     <td>{{food.city}}</td>
-                    <button type="button" (click)="onRemoveClick(i) " class="btn btn-primary">Delete</button>
+                    <td>
+                        <button type="button" (click)="onRemoveClick(i) " class="btn btn-primary">Delete</button>
+                    </td>
+                    <td>
+                        <button type="button" (click)="onEditClick(food, i) " class="btn btn-primary">Edit</button>
+                    </td>
                 </tr>
 
             </table>
         </div>
-        <div class="col-7" *ngIf="isAddingfoods">
+        <div class="col-5" *ngIf="isAddingfoods || isUpdatingFood">
             <form>
                 <div class="form-group">
                     <label>foodName</label>
