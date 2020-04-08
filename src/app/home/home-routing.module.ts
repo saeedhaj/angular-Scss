@@ -29,6 +29,10 @@ const routes: Routes = [
         path: 'restoran',
         loadChildren: () => import("../restoran/restoran.module").then(m => m.RestoranModule)
       },
+      {
+        path: 'cars',
+        loadChildren: () => import("../cars/cars.module").then(m => m.CarsModule)
+      },
     ]
   }
 ];

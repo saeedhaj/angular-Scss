@@ -53,7 +53,7 @@ export class RestoranComponent implements OnInit {
 
   onCreateNewClick() {
     this.isAddingRestoran = true;
-    // this.isUpdateingRestoran = false;
+     this.isUpdateingRestoran = false;
     this.resetForm();
   }
 
