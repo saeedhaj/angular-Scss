@@ -44,7 +44,7 @@ export class RestoranComponent implements OnInit {
     };
     this.restorans.push(NewRestoran);
     this.resetForm();
-    // this.isAddingRestoran=false;
+      this.isAddingRestoran=false;
   }
 
   onCreateCancel() {
@@ -53,6 +53,8 @@ export class RestoranComponent implements OnInit {
 
   onCreateNewClick() {
     this.isAddingRestoran = true;
+    // this.isUpdateingRestoran = false;
+    this.resetForm();
   }
 
   resetForm() {
@@ -66,6 +68,7 @@ export class RestoranComponent implements OnInit {
 
   onEditClick(restoran: any, x: number) {
     this.isUpdateingRestoran = true;
+    this.isAddingRestoran = false;
     this.name = restoran.nameRestoran;
     this.sname = restoran.city;
     this.selectedRestoranIndex = x;
@@ -73,6 +76,7 @@ export class RestoranComponent implements OnInit {
 
   onUpdateClick() {
     this.isUpdateingRestoran = false;
+
     const NewRestoran = {
       nameRestoran: this.name,
       city: this.sname,
