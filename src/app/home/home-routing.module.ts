@@ -41,6 +41,12 @@ const routes: Routes = [
         path: 'dashbords',
         loadChildren: () => import("../dashbords/dashbords.module").then(m => m.DashbordsModule)
       },
+      {
+        path: 'property',
+        loadChildren: () => import("../property/property.module").then(m => m.PropertyModule)
+      },
+      
+      
     ]
   }
 ];
